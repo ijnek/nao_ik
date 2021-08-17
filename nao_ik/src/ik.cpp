@@ -20,12 +20,8 @@ IK::IK()
     "motion/ik_command", 1,
     [this](nao_ik_interfaces::msg::IKCommand::SharedPtr ik_command) {
       nao_command_msgs::msg::JointPositions joints;
-      rosidl_generator_traits::to_yaml(*ik_command, std::cout);
-      // std::cout << "ik_command: " << ik_command->to_yaml() << std::endl;
       Pose3f positionLeft = poseToPose3f(ik_command->left_ankle);
       Pose3f positionRight = poseToPose3f(ik_command->right_ankle);
-      // std::cout << "positionLeft: " << positionLeft << std::endl;
-      // std::cout << "positionRight: " << positionRight << std::endl;
       RobotDimensions rd;
       rd.yHipOffset = 0.050;
       rd.upperLegLength = 0.100;
