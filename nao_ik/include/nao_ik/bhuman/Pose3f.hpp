@@ -1,6 +1,6 @@
 #pragma once
 
-#include "nao_ik/RotationMatrix.h"
+#include "nao_ik/bhuman/RotationMatrix.hpp"
 
 struct Pose3f
 {

@@ -1,5 +1,5 @@
 /**
- * @file Range.h
+ * @file Range.hpp
  *
  * The file defines a template class to represent ranges.
  *

@@ -21,7 +21,8 @@ include_directories(
 add_executable(ik_node
   src/ik_node.cpp
   src/ik.cpp
-  src/RotationMatrix.cpp)
+  src/bhuman/ik_bhuman.cpp
+  src/bhuman/RotationMatrix.cpp)
 
 ament_target_dependencies(ik_node
   rclcpp
