@@ -12,27 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef NAO_IK__IK_HPP_
-#define NAO_IK__IK_HPP_
+#pragma once
 
-#include "rclcpp/rclcpp.hpp"
-#include "nao_command_msgs/msg/joint_positions.hpp"
-#include "nao_ik_interfaces/msg/ik_command.hpp"
-
-struct Pose3f;
-struct RobotDimensions;
-
-class IK : public rclcpp::Node
+struct RobotDimensions
 {
-public:
-  IK();
-
-private:
-  nao_command_msgs::msg::JointPositions calculate_joints(
-    nao_ik_interfaces::msg::IKCommand & ik_command);
-
-  rclcpp::Subscription<nao_ik_interfaces::msg::IKCommand>::SharedPtr sub_ik_command;
-  rclcpp::Publisher<nao_command_msgs::msg::JointPositions>::SharedPtr pub_joints;
+  float yHipOffset;
+  float upperLegLength;
+  float lowerLegLength;
 };
-
-#endif  // NAO_IK__IK_HPP_

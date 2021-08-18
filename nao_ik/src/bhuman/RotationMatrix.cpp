@@ -6,8 +6,8 @@
  * @author <a href="mailto:alexists@tzi.de">Alexis Tsogias</a>
  */
 
-#include "nao_ik/Rotation.h"
-#include "nao_ik/RotationMatrix.h"
+#include "nao_ik/bhuman/Rotation.hpp"
+#include "nao_ik/bhuman/RotationMatrix.hpp"
 
 AngleAxisf RotationMatrix::getAngleAxis() const
 {

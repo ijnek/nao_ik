@@ -1,5 +1,5 @@
 /**
- * @file Tools/Math/Rotation.h
+ * @file Tools/Math/Rotation.hpp
  * Rotation related functionality
  * @author <a href="mailto:alexists@tzi.de">Alexis Tsogias</a>
  */
@@ -7,8 +7,8 @@
 #pragma once
 
 #include <Eigen/Dense>
-#include "nao_ik/Angle.h"
-#include "nao_ik/Approx.h"
+#include "nao_ik/bhuman/Angle.hpp"
+#include "nao_ik/bhuman/Approx.hpp"
 
 using namespace Eigen;
 

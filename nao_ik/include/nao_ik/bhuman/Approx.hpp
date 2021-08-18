@@ -1,7 +1,7 @@
 #pragma once
 
-#include "nao_ik/BHMath.h"
-#include "nao_ik/Constants.h"
+#include "nao_ik/bhuman/BHMath.hpp"
+#include "nao_ik/bhuman/Constants.hpp"
 
 #include <algorithm>
 #include <cmath>

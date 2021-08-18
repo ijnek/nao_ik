@@ -1,5 +1,5 @@
 /**
- * @file Tools/Math/RotationMatrix.h
+ * @file Tools/Math/RotationMatrix.hpp
  * Delcaration of class RotationMatrix
  * @author <a href="mailto:martin.kallnik@gmx.de">Martin Kallnik</a>
  * @author <a href="mailto:thomas.kindler@gmx.de">Thomas Kindler</a>

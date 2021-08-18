@@ -1,5 +1,5 @@
 /**
- * @file Tools/Math/BHMath.h
+ * @file Tools/Math/BHMath.hpp
  *
  * This contains some often used mathematical definitions and functions.
  *
@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include "nao_ik/Angle.h"
+#include "nao_ik/bhuman/Angle.hpp"
 #include <type_traits>
 
 namespace impl
