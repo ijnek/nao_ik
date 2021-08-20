@@ -10,8 +10,15 @@ This package can be used to solve inverse kinematics of a NAO's legs joints.
 
 Please refer to LICENSE for software licensing for different parts of the codebase.
 
-## **WARNING**
+## **Note for Robocup Teams**
 
-Please read and follow the BHuman license if you plan on using this package in a robocup competition.
+**You do not have to announce B-Human code usage when using this package.**
 
-You **must announce B-human code usage one month before competition** as specified in their license.
+This codebase includes software from the B-Human Code Release. Usually, when using B-Human's code in a competition,
+teams are required to announce code usage to the Technical Committee one month before competition, as specified in B-Human's license.
+
+However, B-Human has suggested to release their code in this repository with a reduced B-Human license, due to
+the small amount of borrowed code. The reduced license does not include restrictions about announcing
+code usage.
+
+We thank the authors of the borrowed code and B-Human for their permissiveness in providing code under a reduced license.
