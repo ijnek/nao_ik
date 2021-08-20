@@ -4,7 +4,3 @@ Code in this package is licensed under Apache License V2.0, unless stated otherw
 Copyright (c) 2019 B-Human.  All rights reserved.
 Code in the bhuman/ directories is licensed under BHuman's software license.
 A copy of the license can be found in LICENSE-BHuman.
-
-WARNING:
-PLEASE READ THE BHUMAN LICENSE IF YOU PLAN ON USING THIS PACKAGE IN A ROBOCUP COMPETITION.
-YOU MUST ANNOUNCE BHUMAN CODE USAGE ONE MONTH BEFORE COMPETITION AS SPECIFIED IN THEIR LICENSE.
