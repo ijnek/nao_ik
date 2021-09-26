@@ -14,7 +14,7 @@
 
   <depend>rclcpp</depend>
   <depend>nao_command_msgs</depend>
-  <depend>nao_ik_interfaces</depend>
+  <depend>biped_interfaces</depend>
   <depend>eigen</depend>
 
   <export>

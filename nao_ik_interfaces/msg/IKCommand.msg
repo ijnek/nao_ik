@@ -1,2 +1,0 @@
-geometry_msgs/Pose left_ankle
-geometry_msgs/Pose right_ankle

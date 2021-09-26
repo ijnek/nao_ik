@@ -9,7 +9,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(nao_command_msgs REQUIRED)
-find_package(nao_ik_interfaces REQUIRED)
+find_package(biped_interfaces REQUIRED)
 find_package(Eigen3 REQUIRED)
 
 include_directories(
@@ -27,7 +27,7 @@ add_executable(ik_node
 ament_target_dependencies(ik_node
   rclcpp
   nao_command_msgs
-  nao_ik_interfaces
+  biped_interfaces
   Eigen3)
 
 # Install

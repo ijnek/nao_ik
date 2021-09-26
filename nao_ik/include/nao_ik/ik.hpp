@@ -17,7 +17,7 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "nao_command_msgs/msg/joint_positions.hpp"
-#include "nao_ik_interfaces/msg/ik_command.hpp"
+#include "biped_interfaces/msg/ankle_poses.hpp"
 
 struct Pose3f;
 struct RobotDimensions;
@@ -29,9 +29,9 @@ public:
 
 private:
   nao_command_msgs::msg::JointPositions calculate_joints(
-    nao_ik_interfaces::msg::IKCommand & ik_command);
+    biped_interfaces::msg::AnklePoses & ankle_poses);
 
-  rclcpp::Subscription<nao_ik_interfaces::msg::IKCommand>::SharedPtr sub_ik_command;
+  rclcpp::Subscription<biped_interfaces::msg::AnklePoses>::SharedPtr sub_ankle_poses;
   rclcpp::Publisher<nao_command_msgs::msg::JointPositions>::SharedPtr pub_joints;
 };
 
