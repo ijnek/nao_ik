@@ -1,8 +1,4 @@
 repositories:
-  nao_interfaces:
-    type: git
-    url: https://github.com/ijnek/nao_interfaces.git
-    version: rolling
   biped_interfaces:
     type: git
     url: https://github.com/ijnek/biped_interfaces.git
