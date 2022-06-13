@@ -6,8 +6,8 @@ namespace ik_bhuman
 {
 /**
  * This method calculates the joint angles for the legs of the robot from a Pose3f for each leg.
- * @param positionLeft The desired position (translation + rotation) of the left foots ankle point.
- * @param positionRight The desired position (translation + rotation) of the right foots ankle point.
+ * @param positionLeft The desired position (translation + rotation) of the left foots sole point.
+ * @param positionRight The desired position (translation + rotation) of the right foots sole point.
  * @param jointAngles The instance of JointAngles where the resulting joint angles are written into.
  * @param robotDimensions The Robot Dimensions needed for calculation.
  * @param ratio The ratio between the left and right yaw angle.

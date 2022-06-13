@@ -6,7 +6,7 @@
 This ROS2 package can be used to solve inverse kinematics of a NAO's legs joints.
 
 ## Subscription
-`motion/ankle_poses` (*biped_interfaces/msg/AnklePoses.msg*)
+`motion/sole_poses` (*biped_interfaces/msg/SolePoses.msg*)
 
 ## Publish
 `effectors/joint_positions` - (*nao_command_msgs/msg/JointPositions*)

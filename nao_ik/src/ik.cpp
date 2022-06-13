@@ -19,16 +19,17 @@
 IK::IK()
 : Node("IK")
 {
-  sub_ankle_poses =
-    create_subscription<biped_interfaces::msg::AnklePoses>(
-    "motion/ankle_poses", 1,
-    [this](biped_interfaces::msg::AnklePoses::SharedPtr ankle_poses) {
+  sub_sole_poses =
+    create_subscription<biped_interfaces::msg::SolePoses>(
+    "motion/sole_poses", 1,
+    [this](biped_interfaces::msg::SolePoses::SharedPtr sole_poses) {
       nao_command_msgs::msg::JointPositions joints;
       RobotDimensions rd;
       rd.yHipOffset = 0.050;
       rd.upperLegLength = 0.100;
       rd.lowerLegLength = 0.1029;
-      ik_bhuman::calcLegJoints(ankle_poses->l_ankle, ankle_poses->r_ankle, joints, rd);
+      rd.footHeight = 0.04519;
+      ik_bhuman::calcLegJoints(sole_poses->l_sole, sole_poses->r_sole, joints, rd);
       pub_joints->publish(joints);
     });
 
