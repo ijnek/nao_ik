@@ -16,7 +16,8 @@
 
 struct RobotDimensions
 {
-  float yHipOffset;
-  float upperLegLength;
-  float lowerLegLength;
+  float yHipOffset;  // The y offset of the left hip.
+  float upperLegLength;  // Length between leg joints HipPitch and KneePitch in z-direction.
+  float lowerLegLength;  // Length between leg joints KneePitch and AnklePitch in z-direction.
+  float footHeight;  // Height between the sole of the foot and the foot joint AnkleRoll.
 };
