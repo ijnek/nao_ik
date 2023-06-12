@@ -18,6 +18,9 @@
 #define FREQUENCY 1  // Hz
 #define PERIOD std::chrono::microseconds(1000000 / FREQUENCY)
 
+#define STAND_HEIGHT (0.04519 + 0.10290 + 0.100 + 0.085)
+#define HIP_OFFSET_Y 0.050
+
 namespace nao_ik_ims
 {
 
@@ -27,31 +30,37 @@ NaoIkIms::NaoIkIms(const rclcpp::NodeOptions & options)
   server = std::make_shared<interactive_markers::InteractiveMarkerServer>("nao_ik_ims", this);
   solePosesPub = create_publisher<biped_interfaces::msg::SolePoses>("motion/sole_poses", 1);
 
-  auto lFootInteractiveMarker = createMarker("l_foot");
-  auto rFootInteractiveMarker = createMarker("r_foot");
+  solePoses.l_sole.position.y = HIP_OFFSET_Y;
+  solePoses.r_sole.position.y = -HIP_OFFSET_Y;
+  solePoses.l_sole.position.z = -STAND_HEIGHT;
+  solePoses.r_sole.position.z = -STAND_HEIGHT;
+
+  auto lFootInteractiveMarker = createMarker("l_foot", solePoses.l_sole);
+  auto rFootInteractiveMarker = createMarker("r_foot", solePoses.r_sole);
 
   server->insert(
     lFootInteractiveMarker,
     std::bind(&NaoIkIms::lFootCallback, this, std::placeholders::_1));
-  // server->insert(
-  //   rFootInteractiveMarker,
-  //   std::bind(&NaoIkIms::rFootCallback, this, std::placeholders::_1));
+  server->insert(
+    rFootInteractiveMarker,
+    std::bind(&NaoIkIms::rFootCallback, this, std::placeholders::_1));
 
   // 'commit' changes and send to all clients
   server->applyChanges();
+
+  solePosesPub->publish(solePoses);
 }
 
-visualization_msgs::msg::InteractiveMarker NaoIkIms::createMarker(const std::string & name)
+visualization_msgs::msg::InteractiveMarker NaoIkIms::createMarker(
+  const std::string & name,
+  const geometry_msgs::msg::Pose & pose)
 {
   visualization_msgs::msg::InteractiveMarker interactive_marker;
   interactive_marker.header.frame_id = "base_link";
   interactive_marker.header.stamp = get_clock()->now();
   interactive_marker.name = name;
-  interactive_marker.description = "Simple 1-DOF Control";
-  interactive_marker.scale = 0.1;
-  interactive_marker.pose.position.x = -0.01;
-  interactive_marker.pose.position.y = 0.05;
-  interactive_marker.pose.position.z = -0.25;
+  interactive_marker.scale = 0.15;
+  interactive_marker.pose = pose;
 
   // create a non-interactive control which contains the box
   visualization_msgs::msg::InteractiveMarkerControl control;

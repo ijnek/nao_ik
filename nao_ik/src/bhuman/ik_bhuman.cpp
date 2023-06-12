@@ -30,10 +30,12 @@ bool calcLegJoints(
   Rangef::ZeroOneRange().clamp(ratio);
 
   const Pose3f lTarget0 =
-    ((rotMinusPi_4 + Vector3f(0.f, -robotDimensions.yHipOffset, 0.f)) *= pose3fLeft) +=
+    ((rotMinusPi_4 +
+    Vector3f(0.f, -robotDimensions.yHipOffset, robotDimensions.zHipOffset)) *= pose3fLeft) +=
     Vector3f(0.f, 0.f, robotDimensions.footHeight);
   const Pose3f rTarget0 =
-    ((rotPi_4 + Vector3f(0.f, robotDimensions.yHipOffset, 0.f)) *= pose3fRight) +=
+    ((rotPi_4 +
+    Vector3f(0.f, robotDimensions.yHipOffset, robotDimensions.zHipOffset)) *= pose3fRight) +=
     Vector3f(0.f, 0.f, robotDimensions.footHeight);
   const Vector3f lFootToHip = lTarget0.rotation.inverse() * -lTarget0.translation;
   const Vector3f rFootToHip = rTarget0.rotation.inverse() * -rTarget0.translation;

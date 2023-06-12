@@ -34,7 +34,9 @@ private:
   std::shared_ptr<interactive_markers::InteractiveMarkerServer> server;
   rclcpp::Publisher<biped_interfaces::msg::SolePoses>::SharedPtr solePosesPub;
 
-  visualization_msgs::msg::InteractiveMarker createMarker(const std::string& name);
+  visualization_msgs::msg::InteractiveMarker createMarker(
+    const std::string & name,
+    const geometry_msgs::msg::Pose & pose);
 
   void lFootCallback(
     const visualization_msgs::msg::InteractiveMarkerFeedback::ConstSharedPtr & feedback);
