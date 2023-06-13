@@ -26,6 +26,7 @@ IK::IK()
       nao_command_msgs::msg::JointPositions joints;
       RobotDimensions rd;
       rd.yHipOffset = 0.050;
+      rd.zHipOffset = 0.085;
       rd.upperLegLength = 0.100;
       rd.lowerLegLength = 0.1029;
       rd.footHeight = 0.04519;
