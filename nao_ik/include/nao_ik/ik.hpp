@@ -16,7 +16,7 @@
 #define NAO_IK__IK_HPP_
 
 #include "rclcpp/rclcpp.hpp"
-#include "nao_command_msgs/msg/joint_positions.hpp"
+#include "nao_lola_command_msgs/msg/joint_positions.hpp"
 #include "biped_interfaces/msg/sole_poses.hpp"
 
 struct Pose3f;
@@ -28,11 +28,11 @@ public:
   IK();
 
 private:
-  nao_command_msgs::msg::JointPositions calculate_joints(
+  nao_lola_command_msgs::msg::JointPositions calculate_joints(
     biped_interfaces::msg::SolePoses & sole_poses);
 
   rclcpp::Subscription<biped_interfaces::msg::SolePoses>::SharedPtr sub_sole_poses;
-  rclcpp::Publisher<nao_command_msgs::msg::JointPositions>::SharedPtr pub_joints;
+  rclcpp::Publisher<nao_lola_command_msgs::msg::JointPositions>::SharedPtr pub_joints;
 };
 
 #endif  // NAO_IK__IK_HPP_
