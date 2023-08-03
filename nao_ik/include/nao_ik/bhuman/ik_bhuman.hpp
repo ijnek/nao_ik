@@ -1,5 +1,5 @@
 #include "geometry_msgs/msg/pose.hpp"
-#include "nao_command_msgs/msg/joint_positions.hpp"
+#include "nao_lola_command_msgs/msg/joint_positions.hpp"
 #include "nao_ik/bhuman/RobotDimensions.hpp"
 
 namespace ik_bhuman
@@ -15,6 +15,6 @@ namespace ik_bhuman
  */
 bool calcLegJoints(
   const geometry_msgs::msg::Pose & positionLeft, const geometry_msgs::msg::Pose & positionRight,
-  nao_command_msgs::msg::JointPositions & jointAngles,
+  nao_lola_command_msgs::msg::JointPositions & jointAngles,
   const RobotDimensions & robotDimensions, float ratio = 0.5f);
 }  // namespace ik_bhuman

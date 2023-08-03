@@ -10,7 +10,7 @@ This ROS2 package can be used to solve inverse kinematics of a NAO's legs joints
 `motion/sole_poses` (*biped_interfaces/msg/SolePoses.msg*)
 
 ## Publish
-`effectors/joint_positions` - (*nao_command_msgs/msg/JointPositions*)
+`effectors/joint_positions` - (*nao_lola_command_msgs/msg/JointPositions*)
 
 # Code Usage
 

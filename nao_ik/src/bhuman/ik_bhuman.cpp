@@ -4,20 +4,20 @@
 #include "nao_ik/bhuman/RobotDimensions.hpp"
 #include "nao_ik/bhuman/BHMath.hpp"
 #include "nao_ik/bhuman/Rotation.hpp"
-#include "nao_command_msgs/msg/joint_indexes.hpp"
+#include "nao_lola_command_msgs/msg/joint_indexes.hpp"
 
 namespace ik_bhuman
 {
 
 static Pose3f poseToPose3f(geometry_msgs::msg::Pose pose);
 static void insert(
-  nao_command_msgs::msg::JointPositions & msg,
+  nao_lola_command_msgs::msg::JointPositions & msg,
   const uint8_t & jointIndex,
   const float & jointPosition);
 
 bool calcLegJoints(
   const geometry_msgs::msg::Pose & positionLeft, const geometry_msgs::msg::Pose & positionRight,
-  nao_command_msgs::msg::JointPositions & jointAngles,
+  nao_lola_command_msgs::msg::JointPositions & jointAngles,
   const RobotDimensions & robotDimensions, float ratio)
 {
   Pose3f pose3fLeft = poseToPose3f(positionLeft);
@@ -88,29 +88,33 @@ bool calcLegJoints(
   const float lBeta = -std::acos(cosClipping.limit(lCosMinusBeta));
   const float rBeta = -std::acos(cosClipping.limit(rCosMinusBeta));
 
-  insert(jointAngles, nao_command_msgs::msg::JointIndexes::LHIPYAWPITCH, lJoint0Combined);
+  insert(jointAngles, nao_lola_command_msgs::msg::JointIndexes::LHIPYAWPITCH, lJoint0Combined);
 
   insert(
-    jointAngles, nao_command_msgs::msg::JointIndexes::LHIPROLL,
+    jointAngles, nao_lola_command_msgs::msg::JointIndexes::LHIPROLL,
     (lMinusPi_4MinusJoint1 + pi_4));
-  insert(jointAngles, nao_command_msgs::msg::JointIndexes::LHIPPITCH, lJoint2MinusAlpha + lAlpha);
-  insert(jointAngles, nao_command_msgs::msg::JointIndexes::LKNEEPITCH, -lAlpha - lBeta);
   insert(
-    jointAngles, nao_command_msgs::msg::JointIndexes::LANKLEPITCH,
+    jointAngles, nao_lola_command_msgs::msg::JointIndexes::LHIPPITCH,
+    lJoint2MinusAlpha + lAlpha);
+  insert(jointAngles, nao_lola_command_msgs::msg::JointIndexes::LKNEEPITCH, -lAlpha - lBeta);
+  insert(
+    jointAngles, nao_lola_command_msgs::msg::JointIndexes::LANKLEPITCH,
     std::atan2(lFootRotationC2.x(), lFootRotationC2.z()) + lBeta);
   insert(
-    jointAngles, nao_command_msgs::msg::JointIndexes::LANKLEROLL,
+    jointAngles, nao_lola_command_msgs::msg::JointIndexes::LANKLEROLL,
     std::asin(-lFootRotationC2.y()));
 
-  // insert(jointAngles, nao_command_msgs::msg::JointIndexes::RHIPYAWPITCH, lJoint0Combined);
-  insert(jointAngles, nao_command_msgs::msg::JointIndexes::RHIPROLL, rPi_4AndJoint1 - pi_4);
-  insert(jointAngles, nao_command_msgs::msg::JointIndexes::RHIPPITCH, rJoint2MinusAlpha + rAlpha);
-  insert(jointAngles, nao_command_msgs::msg::JointIndexes::RKNEEPITCH, -rAlpha - rBeta);
+  // insert(jointAngles, nao_lola_command_msgs::msg::JointIndexes::RHIPYAWPITCH, lJoint0Combined);
+  insert(jointAngles, nao_lola_command_msgs::msg::JointIndexes::RHIPROLL, rPi_4AndJoint1 - pi_4);
   insert(
-    jointAngles, nao_command_msgs::msg::JointIndexes::RANKLEPITCH,
+    jointAngles, nao_lola_command_msgs::msg::JointIndexes::RHIPPITCH,
+    rJoint2MinusAlpha + rAlpha);
+  insert(jointAngles, nao_lola_command_msgs::msg::JointIndexes::RKNEEPITCH, -rAlpha - rBeta);
+  insert(
+    jointAngles, nao_lola_command_msgs::msg::JointIndexes::RANKLEPITCH,
     std::atan2(rFootRotationC2.x(), rFootRotationC2.z()) + rBeta);
   insert(
-    jointAngles, nao_command_msgs::msg::JointIndexes::RANKLEROLL,
+    jointAngles, nao_lola_command_msgs::msg::JointIndexes::RANKLEROLL,
     std::asin(-rFootRotationC2.y()));
   const float maxLen = h1 + h2;
   return hl <= maxLen && hr <= maxLen;
@@ -125,7 +129,7 @@ static Pose3f poseToPose3f(geometry_msgs::msg::Pose pose)
 }
 
 static void insert(
-  nao_command_msgs::msg::JointPositions & msg,
+  nao_lola_command_msgs::msg::JointPositions & msg,
   const uint8_t & jointIndex,
   const float & jointPosition)
 {

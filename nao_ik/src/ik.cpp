@@ -13,7 +13,7 @@
 // limitations under the License.
 
 #include "nao_ik/ik.hpp"
-#include "nao_command_msgs/msg/joint_indexes.hpp"
+#include "nao_lola_command_msgs/msg/joint_indexes.hpp"
 #include "nao_ik/bhuman/ik_bhuman.hpp"
 
 IK::IK()
@@ -23,7 +23,7 @@ IK::IK()
     create_subscription<biped_interfaces::msg::SolePoses>(
     "motion/sole_poses", 1,
     [this](biped_interfaces::msg::SolePoses::SharedPtr sole_poses) {
-      nao_command_msgs::msg::JointPositions joints;
+      nao_lola_command_msgs::msg::JointPositions joints;
       RobotDimensions rd;
       rd.yHipOffset = 0.050;
       rd.zHipOffset = 0.085;
@@ -35,5 +35,7 @@ IK::IK()
     });
 
   pub_joints =
-    this->create_publisher<nao_command_msgs::msg::JointPositions>("effectors/joint_positions", 10);
+    this->create_publisher<nao_lola_command_msgs::msg::JointPositions>(
+    "effectors/joint_positions",
+    10);
 }
