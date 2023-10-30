@@ -6,6 +6,18 @@
 
 This ROS2 package can be used to solve inverse kinematics of a NAO's legs joints.
 
+## Nodes
+
+One node is provided, which performs the invverse kinematics via publishers and subscriptions:
+
+```sh
+# If using Rolling, or J-turtle onwards
+ros2 run nao_ik nao_ik
+
+# If using I-turtle or earlier
+ros2 run nao_ik ik_node
+```
+
 ## Subscription
 `motion/sole_poses` (*biped_interfaces/msg/SolePoses.msg*)
 
