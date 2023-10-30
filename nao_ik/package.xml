@@ -12,7 +12,9 @@
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
+  <depend>geometry_msgs</depend>
   <depend>rclcpp</depend>
+  <depend>rclcpp_components</depend>
   <depend>nao_lola_command_msgs</depend>
   <depend>biped_interfaces</depend>
   <depend>eigen</depend>
