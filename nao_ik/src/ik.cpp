@@ -19,7 +19,8 @@
 IK::IK()
 : Node("IK")
 {
-  RCLCPP_WARN(get_logger(),
+  RCLCPP_WARN(
+    get_logger(),
     "The use of 'ik_node' executable is deprecated as of J-turtle. "
     "Please use the 'nao_ik' executable instead. Eg. 'ros2 run nao_ik nao_ik'");
 
