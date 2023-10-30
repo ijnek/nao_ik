@@ -12,17 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "nao_ik/ik.hpp"
+#include "nao_ik/nao_ik.hpp"
 #include "nao_lola_command_msgs/msg/joint_indexes.hpp"
 #include "nao_ik/bhuman/ik_bhuman.hpp"
 
-IK::IK()
-: Node("IK")
+namespace nao_ik
 {
-  RCLCPP_WARN(get_logger(),
-    "The use of 'ik_node' executable is deprecated as of J-turtle. "
-    "Please use the 'nao_ik' executable instead. Eg. 'ros2 run nao_ik nao_ik'");
 
+NaoIK::NaoIK(const rclcpp::NodeOptions & options)
+: rclcpp::Node{"NaoIK", options}
+{
   sub_sole_poses =
     create_subscription<biped_interfaces::msg::SolePoses>(
     "motion/sole_poses", 1,
@@ -43,3 +42,8 @@ IK::IK()
     "effectors/joint_positions",
     10);
 }
+
+}  // namespace nao_ik
+
+#include "rclcpp_components/register_node_macro.hpp"
+RCLCPP_COMPONENTS_REGISTER_NODE(nao_ik::NaoIK)
